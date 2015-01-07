@@ -23,6 +23,25 @@ app.factory('userService',
                 $http(request).success(success).error(error);
             },
 
+            editUserProfile: function(params, success, error) {
+                var request = {
+                    data: JSON.stringify(params),
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/user/Profile',
+                    headers: authService.getAuthHeaders()
+                }
+                $http(request).success(success).error(error);
+            },
+
+            getUserProfile: function(success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/user/Profile',
+                    headers: authService.getAuthHeaders()
+                }
+                $http(request).success(success).error(error);
+            },
+
             deactivateAd: function (id, success, error) {
                 // TODO
             },

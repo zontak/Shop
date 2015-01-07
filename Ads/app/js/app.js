@@ -32,6 +32,15 @@ app.config(function ($routeProvider) {
         controller: 'UserAdsController'
     });
 
+    $routeProvider.when('/user/profile', {
+        templateUrl: 'templates/user/edit.html',
+        controller: 'UserEditController'
+    });
+
+    $routeProvider.when('/user/ads/delete/:id', {
+        controller: 'UserAdsController'
+    });
+
     $routeProvider.otherwise(
         { redirectTo: '/' }
     );

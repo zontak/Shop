@@ -1,0 +1,33 @@
+<div class="box">
+    <h2>Edit</h2>
+    <p>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required />
+    </p>
+    <p>
+        <label for="name">Name:</label>
+        <input type="text" id="name" value="{{user.name}}" ng-model="user.name" required />
+    </p>
+    <p>
+        <label for="email">Email:</label>
+        <input type="text" id="email" value="{{user.email}}" required />
+    </p>
+    <p>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" value="{{user.phoneNumber}}" required />
+    </p>
+    <p>
+        <label for="town">Town:</label>
+        <select id="town" ng-model="user.townId">
+            <option ng-repeat="town in towns" value="{{town.id}}" ng-selected="{{user.townId == town.id}}">{{town.name}}</option>
+        </select>
+    </p>
+    <p ng-if="authService.isAdmin()">
+        <label for="isAdmin">is Admin:</label>
+        <input type="checkbox" id="isAdmin">
+    </p>
+    <p>
+        <a ng-click="editProfile(user)" class="button">Edit</a>
+        <a href="#/" class="link">Cancel</a>
+    <p>
+</div>

@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('UserAdsController',
-   function ($scope, userService, notifyService, pageSize) {
+   function ($scope, userService, userAdsService, notifyService, pageSize, $location) {
       $scope.adsParams = {
           'startPage' : 1,
           'pageSize' : pageSize
@@ -18,6 +18,19 @@ app.controller('UserAdsController',
               }
           );
       };
+
+      $scope.deleteAds = function(id) {
+          userAdsService.delete(
+            id,
+              function success(data) {
+                  notifyService.showInfo("Success delete");
+                  $location.path('/user/ads');
+              },
+              function error(err){
+                  notifyService.showError("Cannot delete ad", err);
+              }
+          );
+      }
 
       $scope.reloadAds();
 	  
