@@ -36,6 +36,14 @@ app.config(function ($routeProvider) {
         controller: 'UserAdsController'
     });
 
+    $routeProvider.when('/user/ads/deactivate/:id', {
+        controller: 'UserAdsController'
+    });
+
+    $routeProvider.when('/user/ads/publishAgain/:id', {
+        controller: 'UserAdsController'
+    });
+
     $routeProvider.when('/user/profile', {
         templateUrl: 'templates/user/edit.html',
         controller: 'UserEditController'
@@ -59,7 +67,6 @@ app.config(function ($routeProvider) {
 app.run(function ($rootScope, $location, authService) {
   $rootScope.$on('$locationChangeStart', function (event) {
     if ($location.path().indexOf("/user/") != -1 && !authService.isLoggedIn()) {
-      // Authorization check: anonymous site visitors cannot access user routes
       $location.path("/");
     }
   });

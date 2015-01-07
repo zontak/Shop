@@ -53,11 +53,21 @@ app.factory('userService',
             },
 
             deactivateAd: function (id, success, error) {
-                // TODO
+                var request = {
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/user/Ads/Deactivate/' + id,
+                    headers: authService.getAuthHeaders()
+                }
+                $http(request).success(success).error(error);
             },
 
             publishAgainAd: function (id, success, error) {
-                // TODO
+                var request = {
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/user/Ads/PublishAgain/' + id,
+                    headers: authService.getAuthHeaders()
+                }
+                $http(request).success(success).error(error);
             }
         }
     }

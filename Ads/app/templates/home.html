@@ -14,8 +14,8 @@
         <div><strong>Name:</strong> {{ad.ownerName}}</div>
         <div><strong>Email:</strong> {{ad.ownerEmail}}</div>
         <div><strong>Phone:</strong> {{ad.ownerPhone}}</div>
-        <div><a href="#/user/ads/edit/{{ad.id}}/{{ad.title}}" ng-if="authService.isAdmin()">Edit</a></div>
-        <div><a href="#/user/ads/delete/{{ad.id}}" ng-click="deleteAds(ad.id)" ng-if="authService.isAdmin()">Delete</a></div>
+        <div><a href="#/user/ads/edit/{{ad.id}}/{{ad.title}}" ng-if="authService.isAdmin()" class="button">Edit</a></div>
+        <div><a href="#/user/ads/delete/{{ad.id}}" ng-click="deleteAds(ad.id)" ng-if="authService.isAdmin()" class="button">Delete</a></div>
     </li>
 </ul>
 

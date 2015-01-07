@@ -12,6 +12,7 @@ app.controller('UserAdsController',
               $scope.adsParams,
               function success(data) {
                   $scope.ads = data;
+                  console.log(data);
               },
               function error(err) {
                   notifyService.showError("Cannot load user ads", err);
@@ -22,15 +23,41 @@ app.controller('UserAdsController',
       $scope.deleteAds = function(id) {
           userAdsService.delete(
             id,
-              function success(data) {
+              function success() {
                   notifyService.showInfo("Success delete");
                   $location.path('/user/ads');
               },
-              function error(err){
+              function error(err) {
                   notifyService.showError("Cannot delete ad", err);
               }
           );
-      }
+      };
+
+      $scope.deactivateAds = function(id) {
+          userService.deactivateAd(
+            id,
+              function success() {
+                  notifyService.showInfo("Success deactivate");
+                  $location.path('/user/ads');
+              },
+              function error(err) {
+                  notifyService.showError("Cannot deactivate ad", err);
+              }
+          );
+      };
+
+      $scope.publishAgainAds = function(id) {
+          userService.publishAgainAd(
+             id,
+             function success() {
+                 notifyService.showInfo("Success publish again");
+                 $location.path('/user/ads');
+             },
+             function error(err) {
+                 notifyService.showError("Cannot publish again ad", err);
+             }
+          );
+      };
 
       $scope.reloadAds();
 	  

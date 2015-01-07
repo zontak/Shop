@@ -11,11 +11,14 @@
             <strong>Image:</strong><img class="ad-image" ng-src="{{ad.imageDataUrl}}" />
         </div>
         <div><strong>Text:</strong> {{ad.text}}</div>
-        <div><strong>Name:</strong> {{ad.ownerName}}</div>
-        <div><strong>Email:</strong> {{ad.ownerEmail}}</div>
-        <div><strong>Phone:</strong> {{ad.ownerPhone}}</div>
-        <div><a href="#/user/ads/edit/{{ad.id}}/{{ad.title}}">Edit</a></div>
-        <div><a href="#/user/ads/delete/{{ad.id}}" ng-click="deleteAds(ad.id)">Delete</a></div>
+        <div><a href="#/user/ads/edit/{{ad.id}}/{{ad.title}}" class="button">Edit</a></div>
+        <div><a href="#/user/ads/delete/{{ad.id}}" ng-click="deleteAds(ad.id)" class="button">Delete</a></div>
+        <div ng-if="ad.status=='Published'">
+            <a href="#/user/ads/deactivate/{{ad.id}}" ng-click="deactivateAds(ad.id)" class="button">Deactivate</a>
+        </div>
+        <div ng-if="ad.status=='Inactive'">
+            <a href="#/user/ads/publishAgain/{{ad.id}}" ng-click="publishAgainAds(ad.id)" class="button">Publish Again</a>
+        </div>
     </li>
 </ul>
 
