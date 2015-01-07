@@ -1,9 +1,9 @@
 'use strict';
 
-var app = angular.module('app', ['ngRoute', 'ngResource', 'ui.bootstrap.pagination']);
+var app = angular.module('app', ['ngRoute', 'ngResource', 'ui.bootstrap.pagination', 'angular-loading-bar']);
 
 app.constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net');
-app.constant('pageSize', 2);
+app.constant('pageSize', 5);
 
 app.config(function ($routeProvider) {
 
@@ -28,7 +28,11 @@ app.config(function ($routeProvider) {
     });
 
     $routeProvider.when('/user/ads', {
-        templateUrl: 'templates/home.html',
+        templateUrl: 'templates/user/user-ads.html',
+        controller: 'UserAdsController'
+    });
+
+    $routeProvider.when('/user/ads/delete/:id', {
         controller: 'UserAdsController'
     });
 
@@ -37,8 +41,14 @@ app.config(function ($routeProvider) {
         controller: 'UserEditController'
     });
 
-    $routeProvider.when('/user/ads/delete/:id', {
-        controller: 'UserAdsController'
+    $routeProvider.when('/ads/user/edit/changePassword', {
+        templateUrl: 'templates/user/change-password.html',
+        controller: 'UserEditController'
+    });
+
+    $routeProvider.when('/user/ads/edit/:id/:title', {
+        templateUrl: 'templates/user/edit-add.html',
+        controller: 'UserEditAdController'
     });
 
     $routeProvider.otherwise(

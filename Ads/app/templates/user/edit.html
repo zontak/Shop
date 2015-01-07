@@ -1,20 +1,16 @@
 <div class="box">
     <h2>Edit</h2>
     <p>
-        <label for="password">Password:</label>
-        <input type="password" id="password" required />
-    </p>
-    <p>
         <label for="name">Name:</label>
         <input type="text" id="name" value="{{user.name}}" ng-model="user.name" required />
     </p>
     <p>
         <label for="email">Email:</label>
-        <input type="text" id="email" value="{{user.email}}" required />
+        <input type="text" id="email" value="{{user.email}}" ng-model="user.email" required />
     </p>
     <p>
         <label for="phone">Phone:</label>
-        <input type="text" id="phone" value="{{user.phoneNumber}}" required />
+        <input type="text" id="phone" value="{{user.phoneNumber}}" ng-model="user.phoneNumber" required />
     </p>
     <p>
         <label for="town">Town:</label>
@@ -27,7 +23,8 @@
         <input type="checkbox" id="isAdmin">
     </p>
     <p>
+        <a href="#/ads/user/edit/changePassword" class="button">Change Password</a>
         <a ng-click="editProfile(user)" class="button">Edit</a>
-        <a href="#/" class="link">Cancel</a>
+        <a href="#/" class="button">Cancel</a>
     <p>
 </div>

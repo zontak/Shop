@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('HomeController',
-   function ($scope, adsService, notifyService, pageSize) {
+   function ($scope, adsService, userService, notifyService, pageSize) {
       $scope.adsParams = {
           'startPage' : 1,
           'pageSize' : pageSize
@@ -18,6 +18,18 @@ app.controller('HomeController',
               }
           );
       };
+
+      ($scope.getProfileData = function() {
+          userService.getUserProfile(
+            function success(data) {
+              $scope.user = data;
+              $scope.username = JSON.parse(sessionStorage['currentUser']).username;
+            },
+                function error(err) {
+                    notifyService.showError("Cannot load user data", err);
+                }
+            );
+        }());
 
       $scope.reloadAds();
 	  
