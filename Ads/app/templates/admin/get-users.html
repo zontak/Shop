@@ -3,10 +3,22 @@
   max-size="9" boundary-links="true">
 </pagination>
 
-<ul class="users">
-    <li ng-repeat="ad in ads.ads" class="box" data-id="{{ad.id}}">
-    </li>
-</ul>
+<table border="1">
+	<tr>
+		<th ng-click="loadUsersBy('UserName')">Username</th>
+		<th ng-click="loadUsersBy('Name')">Name</th>
+		<th ng-click="loadUsersBy('Email')">Email</th>
+		<th ng-click="loadUsersBy('Phone')">Phone</th>
+		<th ng-click="loadUsersBy('Action')">Action</th>
+	</tr>
+	<tr ng-repeat="user in users.users">
+		<td>{{user.userName}}</td>
+		<td>{{user.name}}</td>
+		<td>{{user.email}}</td>
+		<td>{{user.phone}}</td>
+		<td>{{user.action}}</td>
+	</tr>
+</table>
 
 <div ng-if="users.users.length==0" class="box no-data">
     No ads found.

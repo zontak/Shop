@@ -14,10 +14,15 @@
         <div><strong>Name:</strong> {{ad.ownerName}}</div>
         <div><strong>Email:</strong> {{ad.ownerEmail}}</div>
         <div><strong>Phone:</strong> {{ad.ownerPhone}}</div>
-        <div><a href="#/user/ads/edit/{{ad.id}}/{{ad.title}}" ng-if="authService.isAdmin()" class="button">Edit</a></div>
-        <div><a href="#/user/ads/delete/{{ad.id}}" ng-click="deleteAds(ad.id)" ng-if="authService.isAdmin()" class="button">Delete</a></div>
+        <div><a href="#/admin/ads/edit/{{ad.id}}/{{ad.title}}" ng-if="authService.isAdmin()" class="button">Edit</a></div>
+        <div><a href="#/admin/ads/delete/{{ad.id}}" ng-click="adminDeleteAds(ad.id)" ng-if="authService.isAdmin()" class="button">Delete</a></div>
     </li>
 </ul>
+
+<pagination total-items="ads.numItems" ng-model="adsParams.startPage"
+  items-per-page="adsParams.pageSize" ng-change="reloadAds()"
+  max-size="9" boundary-links="true">
+</pagination>
 
 <div ng-if="ads.ads.length==0" class="box no-data">
     No ads found.

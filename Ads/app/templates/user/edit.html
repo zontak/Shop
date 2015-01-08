@@ -6,11 +6,11 @@
     </p>
     <p>
         <label for="email">Email:</label>
-        <input type="text" id="email" value="{{user.email}}" ng-model="user.email" required />
+        <input pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$" type="text" id="email" value="{{user.email}}" ng-model="user.email" required />
     </p>
     <p>
         <label for="phone">Phone:</label>
-        <input type="text" id="phone" value="{{user.phoneNumber}}" ng-model="user.phoneNumber" required />
+        <input pattern="[0-9]+" type="text" id="phone" value="{{user.phoneNumber}}" ng-model="user.phoneNumber" required />
     </p>
     <p>
         <label for="town">Town:</label>

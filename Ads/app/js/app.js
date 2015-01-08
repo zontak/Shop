@@ -59,6 +59,20 @@ app.config(function ($routeProvider) {
         controller: 'UserEditAdController'
     });
 
+    $routeProvider.when('/admin/ads/edit/:id/:title', {
+        templateUrl: 'templates/admin/edit-add.html',
+        controller: 'AdminEditAdController'
+    });
+
+    $routeProvider.when('/admin/ads/delete/:id', {
+        controller: 'AdminAdsController'
+    });
+
+    $routeProvider.when('/admin/users', {
+        templateUrl: 'templates/admin/get-users.html',
+        controller: 'AdminUserController'
+    });
+
     $routeProvider.otherwise(
         { redirectTo: '/' }
     );

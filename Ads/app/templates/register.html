@@ -2,7 +2,7 @@
     <h2>Register</h2>
     <p>
         <label for="username">Username:</label>
-        <input type="text" id="username" ng-model="userData.username" required />
+        <input pattern="[a-zA-Z0-9]+" type="text" id="username" ng-model="userData.username" required />
     </p>
     <p>
         <label for="password">Password:</label>
@@ -18,11 +18,11 @@
     </p>
     <p>
         <label for="email">Email:</label>
-        <input type="text" id="email" ng-model="userData.email" required />
+        <input pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$" type="text" id="email" ng-model="userData.email" required />
     </p>
     <p>
         <label for="phone">Phone:</label>
-        <input type="text" id="phone" ng-model="userData.phone" required />
+        <input pattern="[0-9]+" type="text" id="phone" ng-model="userData.phone" required />
     </p>
     <p>
         <label for="town">Town:</label>
