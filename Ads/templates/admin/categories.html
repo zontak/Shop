@@ -1,0 +1,22 @@
+<pagination total-items="categories.numItems" ng-model="adsParams.startPage"
+  items-per-page="adsParams.pageSize" ng-change="getCategories()"
+  max-size="9" boundary-links="true">
+</pagination>
+
+<h2>Categories</h2>
+<ul type="none">
+	<li ng-repeat="category in categories.categories">
+		<div class="form-group">
+		  <input class="form-control" ng-model="category.username" type="text">
+		  <a href="#/admin/categories/edit/confirmation/{{category.id}}" class="btn btn-info">Edit</a>
+		  <a href="#/admin/categories"  class="btn btn-info" ng-click="console.log(bla)">Delete</a>
+		</div>
+	</li>	
+</ul>
+
+<pagination total-items="categories.numItems" ng-model="adsParams.startPage"
+  items-per-page="adsParams.pageSize" ng-change="getCategories()"
+  max-size="9" boundary-links="true">
+</pagination>
+
+<a href="#/admin/categories/add/category" class="btn btn-info">Add Category</a>

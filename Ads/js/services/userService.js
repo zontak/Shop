@@ -88,10 +88,34 @@ app.factory('userService',
                 };
                 $http(request).success(success).error(error);
             },
-            filterUserAds: function (status, success, error) {
+            filterUserAds: function (params, status, success, error) {
                 var request = {
                     method: 'GET',
-                    url: baseServiceUrl + '/api/user/ads?Status=' + status + '&StartPage=1&PageSize=5',
+                    url: baseServiceUrl + '/api/user/ads?Status=' + status + '&StartPage='+ params.startPage +'&PageSize='+ params.pageSize +'',
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+            filterUsers: function (params, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/admin/Users?StartPage='+ params.startPage +'&PageSize='+ params.pageSize +'',
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+            filterUsersSorted: function (sortBy, params, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/admin/Users?SortBy='+ sortBy +'&StartPage='+ params.startPage +'&PageSize='+ params.pageSize +'',
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+            getUserById: function (id, params, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + 'api/admin/User/' + id,
                     headers: authService.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);

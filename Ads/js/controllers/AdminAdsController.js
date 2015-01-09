@@ -12,6 +12,7 @@ app.controller('AdminAdsController',
               $scope.adsParams,
               function success(data) {
                   $scope.ads = data;
+                  console.log(data);
               },
               function error(err) {
                   notifyService.showError("Cannot load user ads", err);
@@ -31,13 +32,5 @@ app.controller('AdminAdsController',
               }
           );
       };
-
-      $scope.$on("adsByType", function (event, statusClickedId) {
-          $scope.personalAdsParams.status = statusClickedId;
-          $scope.personalAdsParams.startPage = 1;
-          $scope.getUserAds();
-      });
-
-      $scope.reloadAds();
    }
 );

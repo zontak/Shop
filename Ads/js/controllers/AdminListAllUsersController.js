@@ -1,27 +1,26 @@
 'use strict';
 
-app.controller('UserAdsFilterController',
+app.controller('AdminListAllUsersController',
     function ($scope, $routeParams, $rootScope, userService, notifyService, pageSize) {
         $scope.adsParams = {
             'startPage' : 1,
             'pageSize' : pageSize
         };
 
-        $scope.filterUserAd = function () {
-            userService.filterUserAds(
+        $scope.filterUsers = function () {
+            userService.filterUsers(
                 $scope.adsParams,
-                $routeParams.status,
                 function success(data) {
-                    $scope.ads = data;
-                    notifyService.showInfo('Successfully loaded inactive ads');
+                    $scope.users = data;
+                    notifyService.showInfo('Successfully loaded users');
                 },
                 function error(err) {
-                    notifyService.showError('Cannot load inactive ads');
+                    notifyService.showError('Cannot load users');
                 }
             );
         };
 
-        $scope.filterUserAd();
+        $scope.filterUsers();
     }
 );
 
