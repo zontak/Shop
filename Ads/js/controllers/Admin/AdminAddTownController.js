@@ -19,7 +19,7 @@ app.controller('AdminAddTownController',
                     notifyService.showError(err);
                 }
             );
-        }
+        };
     }
 );
 

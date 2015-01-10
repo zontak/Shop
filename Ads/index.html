@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="css/app.css" />
 </head>
 <body>
-    <header id="app-header">
+    <header id="app-header" ng-if="!authService.isAdmin()">
+        <div ng-include="'templates/partial/header.html'"></div>
+    </header>
+    <header id="app-admin-header" ng-if="authService.isAdmin()">
         <div ng-include="'templates/partial/header.html'"></div>
     </header>
 
@@ -68,5 +71,6 @@
     <script src="js/controllers/Admin/AdminAddCategoryController.js"></script>
     <script src="js/controllers/Admin/AdminTownsController.js"></script>
     <script src="js/controllers/Admin/AdminAddTownController.js"></script>
+    <script src="js/controllers/Admin/AdminAdsFilterController.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('AdminDeleteUserController',
-    function ($scope, $routeParams, $rootScope, userService, notifyService, pageSize) {
+    function ($scope, $routeParams, authService, $rootScope, userService, notifyService, pageSize) {
 
         $rootScope.pageTitle = "Delete User";
 
@@ -15,9 +15,12 @@ app.controller('AdminDeleteUserController',
                 },
                 function error(err) {
                     notifyService.showError('Cannot load user');
+                    console.log(err);
                 }
             );
         };
+
+        console.log(authService.sessionStorage['currentUser']);
 
         $scope.getUserById();
     }

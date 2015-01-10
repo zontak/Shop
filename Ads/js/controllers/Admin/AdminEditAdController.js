@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('AdminEditAdController',
-    function ($scope, $location, $routeParams, townsService, categoriesService,
+    function ($rootScope, $scope, $location, $routeParams, townsService, categoriesService,
               userService, notifyService, adminAdsService) {
 
         $rootScope.pageTitle = "Edit ad";

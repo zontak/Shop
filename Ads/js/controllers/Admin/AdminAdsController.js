@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('AdminAdsController',
-   function ($scope, userService, adminAdsService, userAdsService, notifyService, pageSize, $location) {
+   function ($rootScope, $scope, userService, adminService, adminAdsService, userAdsService, notifyService, pageSize, $location) {
     $rootScope.pageTitle = "Ads";
       $scope.adsParams = {
           'startPage' : 1,
@@ -13,7 +13,6 @@ app.controller('AdminAdsController',
               $scope.adsParams,
               function success(data) {
                   $scope.ads = data;
-                  console.log(data);
               },
               function error(err) {
                   notifyService.showError("Cannot load user ads", err);

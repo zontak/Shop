@@ -3,6 +3,18 @@ body {
     background-color: #E2F0D9;
 }
 
+#app-admin-header {
+	background-color: orange;
+    border: #507E32 1px solid;
+    text-align: center;
+    padding: 5px;
+    font-size: 16pt;
+    font-weight: bold;
+    color: black;
+    text-shadow: rgba(255, 255, 255, 0.5) 0.5px 0.5px 1px;
+    margin: 5px;
+}
+
 #app-header {
     background-color: #A9D18E;
     border: #507E32 1px solid;
@@ -15,7 +27,7 @@ body {
     margin: 5px;
 }
 
-#app-header .user-area {
+#app-header .user-area , #app-admin-header .user-area{
     float: right;
     font-size: 11pt;
     font-weight: normal;

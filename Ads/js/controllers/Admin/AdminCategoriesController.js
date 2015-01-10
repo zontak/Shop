@@ -9,6 +9,23 @@ app.controller('AdminCategoriesController',
             'pageSize' : pageSize
         };
 
+        $scope.editCategory = function (id, townName) {
+            var test = {
+                "name": townName,
+            }
+            adminService.editCategory(
+                id,
+                test,
+                function (data) {
+                    notifyService.showInfo('Success Add');
+                    $location.path('/admin/categories')
+                }, 
+                function (err) {
+                    notifyService.showError(err);
+                }
+            );
+        }
+
         $scope.getCategories = function () {
             adminService.getAllCategories(
                 $scope.adsParams,
@@ -30,7 +47,7 @@ app.controller('AdminCategoriesController',
                     notifyService.showInfo('Successfully delete category');
                 },
                 function error(err) {
-                    notifyService.showError('Cannot load categories');
+                    notifyService.showError('Cannot delete categories');
                 }
             );
         };

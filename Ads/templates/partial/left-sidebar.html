@@ -48,4 +48,15 @@
         <li><a href="#/admin/towns">Towns</a></li>
         <li><a ng-click="logout()">Logout</a></li>
     </ul>
+
+    <div class="box" ng-controller="UserAdsController">
+        <h2>My Ads</h2>
+        <ul class="sidebar-menu">
+            <li><a href="#/admin/ads">All</a></li>
+            <li><a ng-click="filterAdminAd()" href="#/admin/ads/filter/2">Published</a></li>
+            <li><a ng-click="filterAdminAd()" href="#/admin/ads/filter/1">Waiting Approval</a></li>
+            <li><a ng-click="filterAdminAd()" href="#/admin/ads/filter/0">Inactive</a></li>
+            <li><a ng-click="filterAdminAd()" href="#/admin/ads/filter/3">Rejected</a></li>
+        </ul>
+    </div>
 </div>

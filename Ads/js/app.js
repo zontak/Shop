@@ -108,7 +108,16 @@ app.config(function ($routeProvider) {
         templateUrl: 'templates/admin/add-town.html',
         controller: 'AdminAddTownController'
     });
-    
+
+    $routeProvider.when('/admin/town/edit/:name', {
+        controller: 'AdminTownsController'
+    });
+
+    $routeProvider.when('/admin/ads/filter/:status', {
+        templateUrl: 'templates/admin/filter-admin-ads.html',
+        controller: 'AdminAdsFilterController'
+    });
+
     $routeProvider.otherwise({
         redirectTo: '/'
     });
