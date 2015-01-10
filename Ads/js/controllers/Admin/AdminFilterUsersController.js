@@ -2,6 +2,7 @@
 
 app.controller('AdminFilterUsersController',
     function ($scope, $routeParams, $rootScope, userService, notifyService, pageSize) {
+        $rootScope.pageTitle = "Users";
         $scope.adsParams = {
             'startPage' : 1,
             'pageSize' : pageSize

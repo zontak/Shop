@@ -115,7 +115,7 @@ app.factory('userService',
             getUserById: function (id, params, success, error) {
                 var request = {
                     method: 'GET',
-                    url: baseServiceUrl + 'api/admin/User/' + id,
+                    url: baseServiceUrl + '/api/admin/users/' + id,
                     headers: authService.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);

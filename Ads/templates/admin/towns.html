@@ -1,0 +1,22 @@
+<pagination total-items="towns.numItems" ng-model="adsParams.startPage"
+  items-per-page="adsParams.pageSize" ng-change="getTowns()"
+  max-size="9" boundary-links="true">
+</pagination>
+
+<h2>Towns</h2>
+<ul type="none">
+	<li ng-repeat="town in towns.towns">
+		<div class="form-group">
+		  <input class="form-control" ng-model="town.username" type="text">
+		  <a href="#/admin/town/edit/confirmation/{{town.id}}" class="btn btn-info">Edit</a>
+		  <a href="#/admin/town/delete/{{town.id}}"  class="btn btn-info" ng-click="deleteTown(town.id)">Delete</a>
+		</div>
+	</li>	
+</ul>
+
+<pagination total-items="towns.numItems" ng-model="adsParams.startPage"
+  items-per-page="adsParams.pageSize" ng-change="getTowns()"
+  max-size="9" boundary-links="true">
+</pagination>
+
+<a href="#/admin/towns/add" class="btn btn-info">Add Town</a>

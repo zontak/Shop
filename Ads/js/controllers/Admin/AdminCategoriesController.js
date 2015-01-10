@@ -1,7 +1,8 @@
 'use strict';
 
 app.controller('AdminCategoriesController',
-    function ($scope, $routeParams, $rootScope, adminService, notifyService, pageSize) {
+    function ($scope, $routeParams, $location, $rootScope, adminService, notifyService, pageSize) {
+        $rootScope.pageTitle = "Categories";
 
         $scope.adsParams = {
             'startPage' : 1,
@@ -21,13 +22,12 @@ app.controller('AdminCategoriesController',
             );
         };
 
-        $scope.deleteCategory = function () {
+        $scope.deleteCategory = function (id) {
             adminService.deleteCategory(
-                $routeParams.id,
+                id,
                 function success(data) {
                     $location.path('/admin/categories');
-                    console.log(data + 'bla');
-                    notifyService.showInfo('Successfully get user');
+                    notifyService.showInfo('Successfully delete category');
                 },
                 function error(err) {
                     notifyService.showError('Cannot load categories');

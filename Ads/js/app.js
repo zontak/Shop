@@ -91,12 +91,22 @@ app.config(function ($routeProvider) {
     });
 
     $routeProvider.when('/admin/categories/delete/:id', {
-        controller: 'AdminDeleteCategoryController'
+        controller: 'AdminCategoriesController'
     });
 
     $routeProvider.when('/admin/categories/add/category', {
         templateUrl: 'templates/admin/add-category.html',
         controller: 'AdminAddCategoryController'
+    });
+
+    $routeProvider.when('/admin/towns', {
+        templateUrl: 'templates/admin/towns.html',
+        controller: 'AdminTownsController'
+    });
+
+    $routeProvider.when('/admin/towns/add', {
+        templateUrl: 'templates/admin/add-town.html',
+        controller: 'AdminAddTownController'
     });
     
     $routeProvider.otherwise({

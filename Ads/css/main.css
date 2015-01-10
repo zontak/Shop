@@ -1,0 +1,8 @@
+.corectFormat {
+	word-wrap: break-word;
+}
+
+.imageSize {
+	max-width: 150px;
+	max-height: 150px;
+}

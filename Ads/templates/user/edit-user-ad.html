@@ -25,7 +25,7 @@
     <div>
         <label for="image">Image:</label>
         <input ng-model="adData.imageUrl" type="file" id="image" onchange="angular.element(this).scope().fileSelected(this)"/>
-        <img ng-src="{{adData.imageDataUrl}}"/><br />
+        <img ng-src="{{adData.imageDataUrl}}" class="imageSize"/><br />
         <a class="button">Delete Image</a>
     </div>
     <div>

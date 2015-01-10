@@ -3,6 +3,8 @@
 app.controller('AdminDeleteUserController',
     function ($scope, $routeParams, $rootScope, userService, notifyService, pageSize) {
 
+        $rootScope.pageTitle = "Delete User";
+
         $scope.getUserById = function () {
             userService.getUserById(
                 $routeParams.id,
