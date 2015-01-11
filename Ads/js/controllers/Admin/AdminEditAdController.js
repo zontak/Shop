@@ -2,7 +2,7 @@
 
 app.controller('AdminEditAdController',
     function ($rootScope, $scope, $location, $routeParams, townsService, categoriesService,
-              userService, notifyService, adminAdsService) {
+              userService, adminService, notifyService, adminAdsService) {
 
         $rootScope.pageTitle = "Edit ad";
 
@@ -23,7 +23,36 @@ app.controller('AdminEditAdController',
                     notifyService.showError("Error editting ad");
                 }
             );
-        }
+        };
+
+        $scope.deleteAdImage = function(adData) {
+            adData.imageDataUrl = null;
+            adData.changeImage = true;
+            adminService.deleteAdImages(
+                adData,
+                function success(data) {
+                    notifyService.showInfo('Successfully deleted image');
+                    $location.path("/admin/ads/edit/" + adData.id);
+                },
+                function error(err) {
+                    notifyService.showError('Cannot delete image', err);
+                }
+            )
+        };
+
+        $scope.changeAdImage = function(adData) {
+            adData.changeImage = true;
+            adminService.changeAdImages(
+                adData,
+                function success(data) {
+                    notifyService.showInfo('Successfully changed image');
+                    $location.path("/admin/ads/edit/" + adData.id);
+                },
+                function error(err) {
+                    notifyService.showError('Cannot change image', err);
+                }
+            )
+        };
 
         $scope.fileSelected = function(fileInputField) {
             delete $scope.adData.imageDataUrl;

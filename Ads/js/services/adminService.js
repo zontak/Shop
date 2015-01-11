@@ -94,6 +94,24 @@ app.factory('adminService',
                     headers: authService.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);
+            },
+            deleteAdImages: function (data, success, error) {
+                var request = {
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/admin/ads/' + data.id,
+                    headers: authService.getAuthHeaders(),
+                    data: JSON.stringify(data)
+                };
+                $http(request).success(success).error(error);
+            },
+            changeAdImages: function (data, success, error) {
+                var request = {
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/admin/ads/' + data.id,
+                    headers: authService.getAuthHeaders(),
+                    data: JSON.stringify(data)
+                };
+                $http(request).success(success).error(error);
             }
         }
     }
